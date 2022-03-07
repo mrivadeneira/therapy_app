@@ -38,6 +38,7 @@ GROUPS_PERMISSIONS = {
         Patients: ['view'],
         PatientDetails: ['add', 'change', 'delete', 'view'],
         PatientSessions: ['add', 'change', 'delete', 'view'],
+
     },
     'Finance Analyst': {
         Clients: ['add', 'view'], 

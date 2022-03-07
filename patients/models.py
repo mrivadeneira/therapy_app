@@ -1,4 +1,3 @@
-from calendar import THURSDAY, WEDNESDAY
 from django.db import models
 
 class Patients(models.Model):

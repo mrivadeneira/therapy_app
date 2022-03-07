@@ -3,16 +3,17 @@ from .serializers import PatientsSerializer, PatientDetailsSerializer, PatientSe
 from rest_framework import generics
 from django_filters.rest_framework import DjangoFilterBackend, FilterSet
 from rest_framework import filters
-from rest_framework.authentication import BasicAuthentication
+#from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
+from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope
 
 class PatientsAPIView(generics.ListCreateAPIView):
     queryset = Patients.objects.all()
     serializer_class = PatientsSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['lastname']
-    authentication_classes = [BasicAuthentication]
-    permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    #authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated, DjangoModelPermissions, TokenHasReadWriteScope]
 
 
 class PatientChangeAPIView(generics.RetrieveUpdateDestroyAPIView):

@@ -1,0 +1,30 @@
+cd frontend
+########OLD########
+mkdir -p ./src
+mkdir -p ./{static,templates}/frontend
+npm init -y
+########OLD########
+npx create-react-app react_front
+cd react_front
+rm -rf .git
+rm -rf .gitignore
+rm -rf README.md
+npm i -D webpack webpack-cli @babel/core babel-loader @babel/preset-env @babel/preset-react babel-plugin-transform-class-properties react react-dom prop-types
+touch .babelrc
+#Write in .babelrc
+touch webpack.config.js
+#Write in webpack.config.js
+
+Write "dev" and "production" scripts in package.json
+Create App.js in src/components
+Create index.js in src/
+Create index.html in templates/frontend
+Create a view pointing to index.html
+Create urls.py inside frontend app
+Add frontend urls in urls.py at project level (therapy_app)
+
+mkdir -p ./src/components/layout
+touch ./src/components/layout/Header.js
+#import the layout component into App.js
+
+npm run dev
