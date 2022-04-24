@@ -2,14 +2,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('patients/',views.PatientsAPIView.as_view()),
-    path('patients/<int:pk>',views.PatientChangeAPIView.as_view()),
-    path('patient_sessions/',views.SessionsAPIView.as_view()),
-    path('patient_sessions/<int:pk>',views.PatientSessionsChangeAPIView.as_view()),
-    path('patient_details/',views.PatientDetailsAPIView.as_view()),
-    path('patient_details/<int:pk>',views.PatientDetailsChangeAPIView.as_view()),
-    path('rooms/',views.RoomsAPIView.as_view()),
-    path('rooms/<int:pk>',views.RoomChangeAPIView.as_view()),
-    path('shifts/',views.ShiftsAPIView.as_view()),
-    path('shifts/<int:pk>',views.ShiftChangeAPIView.as_view()),
+    path('patients/',views.PatientsView.as_view()),
+    path('patients-admin/',views.PatientsAdminView.as_view()),
+    path('patients/<int:pk>',views.PatientChangeView.as_view()),
+    path('patient_sessions/',views.SessionsView.as_view()),
+    path('patient_sessions/<int:pk>',views.PatientSessionsChangeView.as_view()),
+    path('patient_details/',views.PatientDetailsView.as_view()),
+    path('patient_details/<int:pk>',views.PatientDetailsChangeView.as_view()),
+    path('rooms/',views.RoomsView.as_view()),
+    path('rooms/<int:pk>',views.RoomChangeView.as_view()),
+    path('shifts/',views.ShiftsView.as_view()),
+    path('shifts/<int:pk>',views.ShiftChangeView.as_view()),
 ]

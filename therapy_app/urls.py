@@ -1,14 +1,16 @@
 from django.contrib import admin
-from django.urls import path, include
-#from rest_framework.authtoken.views import obtain_auth_token
-
+from django.urls import path, include, re_path
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('frontend.urls')),
-    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    # path('', include('frontend.urls')),
     path('api/', include('patients.urls')),
     path('api/', include('therapists.urls')),
     path('api/', include('accounting.urls')),
-    #path('api-token-auth/', obtain_auth_token, name='api_token_auth')
+    path('api/', include('security.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
 ]
+
+urlpatterns += [re_path(r'^.*', TemplateView.as_view(template_name='index.html'))]

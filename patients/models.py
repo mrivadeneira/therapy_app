@@ -1,10 +1,23 @@
 from django.db import models
+from security.models import UserAccount
 
 class Patients(models.Model):
     id_document_n = models.IntegerField(primary_key=False, unique=True)
     name = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        UserAccount,
+        on_delete = models.SET("DELETED"),
+        related_name="created_by_patient",
+        null=True
+        )
+    updated_by = models.ForeignKey(
+        UserAccount,
+        on_delete = models.SET("DELETED"),
+        related_name='updated_by_patient',
+        null=True,
+    )
 
     
 class PatientDetails(models.Model):
